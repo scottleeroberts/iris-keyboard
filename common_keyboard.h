@@ -7,10 +7,12 @@ enum {
 
 #define _______ KC_TRNS
 
-#define MY_G LSFT_T(KC_G)
+#define MY_A LALT_T(KC_A)
+#define MY_SCLN LOPT_T(KC_SCLN)
 #define MY_S LGUI_T(KC_S)
 #define MY_D LT(TMUX,KC_D)
 #define MY_F CTL_T(KC_F)
+#define MY_G LSFT_T(KC_G)
 #define MY_V RCTL(KC_V)
 #define MY_J CTL_T(KC_J)
 #define MY_L LGUI_T(KC_L)
