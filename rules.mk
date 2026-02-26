@@ -1,2 +1,3 @@
+DEBOUNCE_TYPE = sym_eager_pr
 RGBLIGHT_ENABLE = yes
 BACKLIGHT_ENABLE = yes
