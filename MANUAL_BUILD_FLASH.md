@@ -71,12 +71,19 @@ cd build
 ### Step 3: Clone QMK firmware (first time only)
 
 ```bash
-# If you haven't cloned QMK yet:
-git clone --depth 1 https://github.com/qmk/qmk_firmware.git
+# Pin to the exact QMK version this firmware was tested against
+QMK_SHA=9e8199c41189a2eb6243600bf3f96f136650820b
 
-# If you already have it, optionally update:
+# If you haven't cloned QMK yet:
+git clone https://github.com/qmk/qmk_firmware.git
 cd qmk_firmware
-git pull
+git checkout $QMK_SHA
+cd ..
+
+# If you already have it and want to re-pin:
+cd qmk_firmware
+git fetch origin
+git checkout $QMK_SHA
 cd ..
 ```
 
@@ -185,7 +192,7 @@ lsusb | grep -i "atmel\|dfu"
 sudo dfu-programmer atmega32u4 erase --force
 
 # Flash the firmware
-sudo dfu-programmer atmega32u4 flash keebio_iris_rev5_scottleeroberts.hex
+sudo dfu-programmer atmega32u4 flash --force keebio_iris_rev5_scottleeroberts.hex
 
 # Reset to exit bootloader and run the firmware
 sudo dfu-programmer atmega32u4 reset
@@ -236,7 +243,7 @@ lsusb | grep -i "atmel\|dfu"
 sudo dfu-programmer atmega32u4 erase --force
 
 # Flash the firmware
-sudo dfu-programmer atmega32u4 flash keebio_iris_rev5_scottleeroberts.hex
+sudo dfu-programmer atmega32u4 flash --force keebio_iris_rev5_scottleeroberts.hex
 
 # Reset to exit bootloader
 sudo dfu-programmer atmega32u4 reset
@@ -368,8 +375,10 @@ cd ../..
 ```bash
 cd ~/scottleeroberts/iris-keyboard
 mkdir -p build && cd build
-git clone --depth 1 https://github.com/qmk/qmk_firmware.git  # first time
+QMK_SHA=9e8199c41189a2eb6243600bf3f96f136650820b
+git clone https://github.com/qmk/qmk_firmware.git  # first time
 cd qmk_firmware
+git checkout $QMK_SHA
 git submodule update --init --recursive  # first time
 mkdir -p keyboards/keebio/iris/keymaps/scottleeroberts
 cp ../../{keymap.c,config.h,rules.mk,readme.md} keyboards/keebio/iris/keymaps/scottleeroberts/
@@ -383,7 +392,7 @@ cd ../..
 # Press RESET button
 lsusb | grep -i atmel  # Check DFU bootloader is active
 sudo dfu-programmer atmega32u4 erase --force
-sudo dfu-programmer atmega32u4 flash keebio_iris_rev5_scottleeroberts.hex
+sudo dfu-programmer atmega32u4 flash --force keebio_iris_rev5_scottleeroberts.hex
 sudo dfu-programmer atmega32u4 reset
 ```
 

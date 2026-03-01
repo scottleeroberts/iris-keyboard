@@ -30,7 +30,7 @@ docker run --rm -v $(pwd):/qmk_firmware -w /qmk_firmware ghcr.io/qmk/qmk_cli \
 
 # Flash each half (press RESET button first)
 sudo dfu-programmer atmega32u4 erase --force
-sudo dfu-programmer atmega32u4 flash keebio_iris_rev5_scottleeroberts.hex
+sudo dfu-programmer atmega32u4 flash --force keebio_iris_rev5_scottleeroberts.hex
 sudo dfu-programmer atmega32u4 reset
 ```
 
