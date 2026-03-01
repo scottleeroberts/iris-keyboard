@@ -18,6 +18,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define EE_HANDS
 
+// Force the MCU to wait for a successful USB handshake before sending data,
+// preventing desync during KVM switching.
+#define WAIT_FOR_USB
+
 // IGNORE_MOD_TAP_INTERRUPT was removed from QMK; its behavior is now the default.
 // No replacement define is needed.
 

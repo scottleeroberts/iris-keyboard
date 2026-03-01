@@ -1,3 +1,6 @@
 DEBOUNCE_TYPE = sym_eager_pr
 RGBLIGHT_ENABLE = yes
 BACKLIGHT_ENABLE = yes
+
+# Disable NKRO to force standard 6-key boot protocol (prevents KVM controller hang)
+NKRO_ENABLE = no
