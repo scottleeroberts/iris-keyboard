@@ -41,13 +41,13 @@ const key_override_t *key_overrides[] = {
 };
 
 // Combos: press two adjacent keys simultaneously for common actions
-const uint16_t PROGMEM combo_jk[] = {MY_J, KC_K, COMBO_END};
-const uint16_t PROGMEM combo_kl[] = {KC_K, MY_L, COMBO_END};
+const uint16_t PROGMEM combo_kj[] = {KC_K, MY_J, COMBO_END};
+const uint16_t PROGMEM combo_lj[] = {MY_L, MY_J, COMBO_END};
 const uint16_t PROGMEM combo_df[] = {MY_D, MY_F, COMBO_END};
 
 combo_t key_combos[] = {
-    COMBO(combo_jk, KC_ESC),    // J+K = Escape
-    COMBO(combo_kl, KC_BSPC),   // K+L = Backspace
+    COMBO(combo_kj, KC_ESC),    // K+J = Escape
+    COMBO(combo_lj, KC_BSPC),   // L+J = Backspace
     COMBO(combo_df, KC_TAB),    // D+F = Tab
 };
 
