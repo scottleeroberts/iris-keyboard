@@ -23,6 +23,17 @@ enum custom_keycodes {
     RGB_BREATHE   // Set RGB to breathing mode (replaces deprecated RGB_MODE_BREATHE)
 };
 
+// Home-row modifiers
+#define MY_A LALT_T(KC_A)
+#define MY_SCLN LALT_T(KC_SCLN)
+#define MY_S LGUI_T(KC_S)
+#define MY_D LT(TMUX, KC_D)
+#define MY_F LCTL_T(KC_F)
+#define MY_G LSFT_T(KC_G)
+#define MY_H LSFT_T(KC_H)
+#define MY_J LCTL_T(KC_J)
+#define MY_L LGUI_T(KC_L)
+
 // Key overrides: remap modifier+key combinations
 const key_override_t shift_bspc_del = ko_make_basic(MOD_MASK_SHIFT, KC_BSPC, KC_DEL);
 const key_override_t *key_overrides[] = {
@@ -39,17 +50,6 @@ combo_t key_combos[] = {
     COMBO(combo_kl, KC_BSPC),   // K+L = Backspace
     COMBO(combo_df, KC_TAB),    // D+F = Tab
 };
-
-// Home-row modifiers
-#define MY_A LALT_T(KC_A)
-#define MY_SCLN LALT_T(KC_SCLN)
-#define MY_S LGUI_T(KC_S)
-#define MY_D LT(TMUX, KC_D)
-#define MY_F LCTL_T(KC_F)
-#define MY_G LSFT_T(KC_G)
-#define MY_H LSFT_T(KC_H)
-#define MY_J LCTL_T(KC_J)
-#define MY_L LGUI_T(KC_L)
 
 #ifdef RGBLIGHT_ENABLE
 void keyboard_post_init_user(void) {
