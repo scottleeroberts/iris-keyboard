@@ -23,6 +23,12 @@ enum custom_keycodes {
     RGB_BREATHE   // Set RGB to breathing mode (replaces deprecated RGB_MODE_BREATHE)
 };
 
+// Key overrides: remap modifier+key combinations
+const key_override_t shift_bspc_del = ko_make_basic(MOD_MASK_SHIFT, KC_BSPC, KC_DEL);
+const key_override_t *key_overrides[] = {
+    &shift_bspc_del,  // Shift+Backspace = Delete
+};
+
 // Combos: press two adjacent keys simultaneously for common actions
 const uint16_t PROGMEM combo_jk[] = {MY_J, KC_K, COMBO_END};
 const uint16_t PROGMEM combo_kl[] = {KC_K, MY_L, COMBO_END};
