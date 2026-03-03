@@ -34,12 +34,6 @@ enum custom_keycodes {
 #define MY_J LCTL_T(KC_J)
 #define MY_L LGUI_T(KC_L)
 
-// Key overrides: remap modifier+key combinations
-const key_override_t shift_bspc_del = ko_make_basic(MOD_MASK_SHIFT, KC_BSPC, KC_DEL);
-const key_override_t *key_overrides[] = {
-    &shift_bspc_del,  // Shift+Backspace = Delete
-};
-
 // Combos: press two adjacent keys simultaneously for common actions
 const uint16_t PROGMEM combo_jh[] = {MY_J, MY_H, COMBO_END};
 const uint16_t PROGMEM combo_kj[] = {KC_K, MY_J, COMBO_END};
