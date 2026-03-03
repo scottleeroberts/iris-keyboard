@@ -21,8 +21,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // Home-row mod anti-misfire: resolve as tap when both keys are on the same hand.
 #define CHORDAL_HOLD
 
-// Disable hold behavior during fast typing bursts (keys within 150ms always tap).
-#define FLOW_TAP_TERM 125
+// Engage home-row mods after 170ms hold (default 200ms).
+#define TAPPING_TERM 170
+
+// Disable hold behavior during fast typing bursts (keys within 100ms always tap).
+#define FLOW_TAP_TERM 100
 
 // IGNORE_MOD_TAP_INTERRUPT was removed from QMK; its behavior is now the default.
 // No replacement define is needed.
