@@ -8,6 +8,9 @@ Custom QMK firmware for Keebio Iris Rev5 with home-row modifiers and tmux integr
 - **4 layers**: Base (QWERTY), Symbols, Tmux shortcuts, Numbers/RGB
 - **Tmux integration**: Custom macros for window management (Ctrl+Space prefix)
 - **RGB lighting**: Full control via Numbers layer
+- **Home-row combos**: J+H = Escape, K+J = Backspace, D+F = Tab
+- **Key overrides**: Shift+Backspace = Delete
+- **Chordal Hold + Flow Tap**: Anti-misfire for home-row mods
 - **Modern QMK**: Updated for latest QMK firmware (Feb 2026)
 
 ## Quick Start
@@ -117,7 +120,24 @@ Tab 0
 ### Home-Row Modifiers
 
 - **Tapping term:** 200ms (QMK default)
-- **Hold behavior:** QMK default (rolling combos won't trigger accidental modifiers)
+- **Chordal Hold:** Same-hand tap-hold + next key resolves as tap (prevents misfires)
+- **Flow Tap:** Keys pressed within 150ms of each other always tap (fast typing protection)
+
+### Combos
+
+Press two keys simultaneously for common actions:
+
+| Combo | Action |
+|-------|--------|
+| J + H | Escape |
+| K + J | Backspace |
+| D + F | Tab |
+
+### Key Overrides
+
+| Input | Output |
+|-------|--------|
+| Shift + Backspace | Delete |
 
 ### RGB Lighting
 
@@ -205,6 +225,8 @@ sudo udevadm control --reload-rules
 - Unplug and replug USB
 
 **Home-row mods triggering accidentally:**
+- Chordal Hold and Flow Tap are already enabled to prevent most misfires
+- Adjust `FLOW_TAP_TERM` in config.h (default 150ms) to tune fast-typing protection
 - Add `#define TAPPING_TERM <value>` to config.h (default is 200ms, try 225ms)
 
 ## Files
