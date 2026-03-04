@@ -111,6 +111,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     )
 };
 
+// Chordal hold override: allow F+W as Ctrl+W despite being same hand
+bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t *tap_hold_record,
+                      uint16_t other_keycode, keyrecord_t *other_record) {
+    if (tap_hold_keycode == MY_F && other_keycode == KC_W) {
+        return true;
+    }
+    return get_chordal_hold_default(tap_hold_record, other_record);
+}
+
 // Helper function: sends Ctrl+Space (tmux prefix) followed by a key
 void send_tmux_key(const char* key) {
     SEND_STRING(SS_LCTL(" "));
