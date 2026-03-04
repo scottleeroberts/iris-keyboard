@@ -117,6 +117,9 @@ bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t *tap_hold_record,
     if (tap_hold_keycode == MY_F && other_keycode == KC_W) {
         return true;
     }
+    if (tap_hold_keycode == MY_L && other_keycode == KC_Y) {
+        return true;
+    }
     return get_chordal_hold_default(tap_hold_record, other_record);
 }
 
