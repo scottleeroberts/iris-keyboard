@@ -16,14 +16,25 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 #pragma once
 
-// #define USE_I2C
 #define EE_HANDS
 
-#define IGNORE_MOD_TAP_INTERRUPT // this makes it possible to do rolling combos (zx) with keys that convert to other keys on hold (z becomes ctrl when you hold it, and when this option isn't enabled, z rapidly followed by x actually sends Ctrl-x. That's bad.)
+// Home-row mod anti-misfire: resolve as tap when both keys are on the same hand.
+#define CHORDAL_HOLD
 
-#define RGBLIGHT_ANIMATIONS
-#define RGBLED_NUM 12
+// Engage home-row mods after 170ms hold (default 200ms).
+#define TAPPING_TERM 170
+
+// Activate mod immediately when another key is tapped during hold (no TAPPING_TERM wait).
+#define PERMISSIVE_HOLD
+
+// Disable hold behavior during fast typing bursts (keys within 100ms always tap).
+#define FLOW_TAP_TERM 100
+
+// IGNORE_MOD_TAP_INTERRUPT was removed from QMK; its behavior is now the default.
+// No replacement define is needed.
+
+// RGB lighting effects are enabled in the keyboard's keyboard.json.
+// Only step sizes are customized here.
 #define RGBLIGHT_HUE_STEP 8
 #define RGBLIGHT_SAT_STEP 8
 #define RGBLIGHT_VAL_STEP 8
-
